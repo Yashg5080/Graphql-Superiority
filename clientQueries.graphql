@@ -18,7 +18,7 @@ query getAllQuotes {
   }
 }
 
-query getUser {
+query getUserByID {
   user(id: "23131") {
     firstName
     lastName
@@ -29,5 +29,18 @@ query getQuotesByUser {
 	quotesByUser(by: "23131"){
     name
     by
+  }
+}
+
+query getUserByID($id: ID!){
+  user(id: $id) {
+    firstName
+    lastName
+  }
+}
+
+mutation CrateUser($createUserInput: CreateUserInput!) {
+  createUser(createUserInput:$createUserInput) {
+    id
   }
 }
